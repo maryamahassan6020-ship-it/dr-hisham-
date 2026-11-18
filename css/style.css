@@ -1,0 +1,752 @@
+/* ==========================================================================
+   Dr. Hisham Awad Clinic — Modern Minimalist Medical Stylesheet (Light Theme)
+   ========================================================================== */
+
+:root {
+  --ink: #1e293b;        /* Deep slate headings (14.6:1 on #fff) */
+  --body: #334155;       /* Slate gray body ink (10.35:1 on #fff) */
+  --muted: #475569;      /* Muted slate copy (7.58:1 on #fff, 7.25:1 on #f8fafc) */
+  --blue: #0369a1;       /* Accessible medical blue for text & solid CTAs (5.94:1) */
+  --sky: #0284c7;        /* Calm sky blue for accents, icons & portrait border */
+  --sky-soft: #e0f2fe;   /* Soft clinical sky tint for icon wells */
+  --sky-wash: #f0f9ff;   /* Subtle atmospheric hero tint */
+  --mist: #f8fafc;       /* Very light cool-gray alternating section surface */
+  --paper: #ffffff;      /* Crisp white card & primary canvas surface */
+  --deep: #0f172a;       /* Deep slate footer background */
+  --line: #e2e8f0;       /* Hairline slate border */
+  --field-line: #cbd5e1; /* Clear form input border */
+  --field: #ffffff;      /* Clean white form field surface */
+  --red: #b91c1c;        /* Accessible error & focus ring */
+  --wa: #15803d;         /* Accessible WhatsApp green (5.01:1 with #fff) */
+  --onblue: #ffffff;     /* Pure white text on primary buttons */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 12px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -4px rgba(2, 132, 199, 0.06);
+  --radius-card: 18px;
+  --radius-btn: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--body);
+  font: 400 17px/1.75 "Cairo", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Top Utility Bar */
+.topbar {
+  background: var(--deep);
+  color: #e2e8f0;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 42px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.topbar-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  color: #cbd5e1;
+}
+
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.topbar-item svg {
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.topbar-sep {
+  color: #64748b;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font: 600 13.5px "Cairo", "Plus Jakarta Sans", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 32px;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Sticky 3-Zone Header */
+.hd {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.hd .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  height: 72px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 6px 0;
+  transition: color 150ms ease;
+}
+
+nav a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--blue);
+  color: var(--onblue);
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-btn);
+  padding: 11px 26px;
+  font: 600 16px "Cairo", "Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 44px;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.btn:hover {
+  background: #075985;
+  border-color: #075985;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.hd .btn {
+  padding: 8px 20px;
+  font-size: 15px;
+  min-height: 40px;
+}
+
+.btn.alt {
+  background: var(--paper);
+  color: var(--blue);
+  border-color: var(--field-line);
+}
+
+.btn.alt:hover {
+  background: var(--sky-wash);
+  border-color: var(--blue);
+}
+
+.btn.wa {
+  background: var(--wa);
+  border-color: var(--wa);
+  color: #ffffff;
+}
+
+.btn.wa:hover {
+  background: #166534;
+  border-color: #166534;
+}
+
+.btn:focus-visible,
+.lang-btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Modern Medical Hero */
+.hero {
+  background: linear-gradient(180deg, var(--sky-wash) 0%, var(--mist) 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 56px 0 64px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-kicker {
+  display: block;
+  font-size: 16px;
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: clamp(34px, 4.8vw, 54px);
+  line-height: 1.18;
+  margin: 0 0 18px;
+  font-weight: 800;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 34em;
+  margin: 0 0 28px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-meta-item strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hero-meta-item span {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.hero-portrait-frame {
+  justify-self: center;
+  width: 100%;
+  max-width: 360px;
+  padding: 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow-md);
+}
+
+.ph {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Section Rhythm */
+section {
+  padding: 72px 0;
+}
+
+.alt-bg {
+  background: var(--mist);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+h2 {
+  font-size: clamp(26px, 3.6vw, 36px);
+  margin: 0 0 10px;
+  font-weight: 800;
+  line-height: 1.28;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.sub {
+  color: var(--muted);
+  margin: 0;
+  max-width: 42em;
+  font-size: 17px;
+}
+
+/* How We Care */
+.care-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.care-prose p {
+  margin: 0 0 16px;
+  color: var(--body);
+  font-size: 17.5px;
+}
+
+.care-prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Meet the Doctor Card */
+.doc {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 32px;
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--line);
+}
+
+.doc h3 {
+  font-size: 28px;
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.doc .r {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 16.5px;
+  margin: 0 0 18px;
+}
+
+.doc ul {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.doc li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--body);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.doc li svg {
+  color: var(--sky);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* Why Choose Cards */
+.three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.card:hover {
+  border-color: #bae6fd;
+  transform: translateY(-2px);
+}
+
+.card-num {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15.5px;
+}
+
+/* Medical Services Grid */
+.svc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.svc .card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  padding: 26px;
+}
+
+.ic {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--sky-soft);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.svc h3 {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Booking & Locations Section */
+.booking-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.clinic-cards {
+  display: grid;
+  gap: 18px;
+}
+
+.clinic-card {
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.clinic-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.clinic-card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.clinic-hours {
+  font-weight: 600;
+  color: var(--blue);
+  font-size: 14.5px;
+  margin-bottom: 12px;
+}
+
+.clinic-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.clinic-map-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.form-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  font: 400 16px "Cairo", "Plus Jakarta Sans", sans-serif;
+  padding: 11px 14px;
+  border: 1px solid var(--field-line);
+  border-radius: 12px;
+  background: var(--field);
+  color: var(--ink);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #94a3b8;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#msg {
+  min-height: 1.6em;
+  font-weight: 700;
+  color: var(--red);
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 6px 0 0;
+}
+
+/* Footer */
+.ft {
+  background: var(--deep);
+  color: #ffffff;
+  padding: 52px 0 32px;
+}
+
+.ft .cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.ft h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  color: #ffffff;
+}
+
+.ft p {
+  margin: 0 0 8px;
+  color: #cbd5e1;
+  font-size: 15px;
+}
+
+.ft a {
+  color: #7dd3fc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ft a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ft .links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.ft .cp {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin-top: 32px;
+  padding-top: 20px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .hero-grid,
+  .care-grid,
+  .doc,
+  .three,
+  .booking-layout {
+    grid-template-columns: 1fr;
+  }
+  .svc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .doc {
+    text-align: center;
+  }
+  .doc img {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  .doc ul {
+    text-align: start;
+  }
+}
+
+@media (max-width: 760px) {
+  nav {
+    display: none;
+  }
+  .topbar-info {
+    font-size: 12.5px;
+  }
+  .topbar-sep {
+    display: none;
+  }
+  .hero {
+    padding: 36px 0 48px;
+  }
+  .hero-meta {
+    grid-template-columns: 1fr;
+  }
+  section {
+    padding: 52px 0;
+  }
+  .svc,
+  form,
+  .ft .cols {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

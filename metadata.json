@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Hisham Awad Clinic",
+  "description": "Minimalist healthcare clinic website for Dr. Hisham Awad, Consultant of Internal Medicine, with full Arabic/English bilingual support and accessible light/dark modes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
